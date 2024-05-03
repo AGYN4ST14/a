@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.backgroud{
+    height: 100vh;
+    width: 130px;
+    background-image: url('spon.png');
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size: cover;
+    z-index: 200;
+}
+.bird {
+    height: 100px;
+    width: 130px;
+    position: fixed;
+    top: 40vh;
+    left: 40vw;
+    z-index: 100;
+}
+
+.pipe_sprite{
+    position: fixed;
+    top: 40vh;
+    left: 100vh;
+    height: 70vh;
+    width: 6vw;
+    background: radial-gradient(lightgreen 50%, green);
+    border: 5px solid black;
+}
+.message {
+    position: absolute;
+    z-index: 10;
+    color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+.messageStyle{
+    background: white;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) opx 3px 8px;
+    border-radius: 5%;
+}
+
+.score {
+    position: fixed;
+    height: 10vh;
+    font-size: 10vh;
+    font-weight: 100;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    z-index: 120;
+}
+
+.score_vol{
+    color: gold;
+    font-weight: bold;
+}
+
+@media only screen and (max-width){
+    .message{
+        font-size: 0px;
+        top: 50%;
+        white-space: nowrap;
+    }
+    .score{
+        font-size: 8vh;
+    }
+
+    .bird{
+        width: 120px;
+        height: 90px;
+    }
+    .pipe_sprite{
+        width: 14vw;
+    }
+}

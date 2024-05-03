@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>batu gunting kertas</title>
+    <style>
+      :root {
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    height: 100vh;
+    
+}
+.summary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px auto;
+    border: 3px solid rgb(40, 24, 0);
+    width: 600px;
+    height: 500px;
+    text-align: center;
+    border-radius: 30px;
+
+}
+
+.gemes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.option {
+    height: 50px;
+    margin:5px 20px;
+    padding:40px 40px;
+    font-size: 40px;
+    text-align: center;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.option:hover{
+    cursor: pointer;
+    background-color: burlywood;
+    transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    transform: scale(105%);
+    -webkit-transform: scale(105%);
+    -moz-transform: scale(105%);
+    -ms-transform: scale(105%);
+    -o-transform: scale(105%);
+    -webkit-transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    -moz-transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    -ms-transition:cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    -o-transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+}
+
+@media (max-width: 431px) {
+    .summary{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+        border: 3px solid blanchedalmond;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        font-size: 10px;
+        border-radius: 10px;
+    }
+
+    .option {
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        margin:50px 10px;
+        padding: 20px 40px;
+        font-size: 30px;
+        text-align: center;
+        border-radius: 50%;
+    }
+}
+    
+
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="summary">
+        <h1 class="title">MATCH RESULT</h1>
+        <h1 id="inGame"></h1>
+        <h1 id="result"></h1>
+      </div>
+      <div class="gemes">
+        <div class="option" onclick="pickOption('🖐')">🖐</div>
+        <div class="option" onclick="pickOption('✌')">✌</div>
+        <div class="option" onclick="pickOption('✊')">✊</div>
+      </div>
+    </div>
+    <script>
+      class Start {
+        constructor() {
+          this.playerName = "saya";
+          this.botName = "kamu";
+          this.playerOption = "";
+          this.botOption = "";
+          this.winner = "";
+        }
+
+        get getBotOption() {
+          return this.botOption;
+        }
+
+        set setBotOption(option) {
+          this.botOption = option;
+        }
+
+        get getPlayerOption() {
+          return this.playerOption;
+        }
+
+        set setPlayerOption(option) {
+          this.playerOption = option;
+        }
+
+        botBrain() {
+          const option = ["🖐", "✌", "✊"];
+          const bot = option[Math.floor(Math.random() * option.length)];
+          return bot;
+        }
+
+        winCalculation() {
+          if (this.botOption === "🖐" && this.playerOption === "✌") {
+            this.winner = this.playerName;
+          } else if (this.botOption === "🖐" && this.playerOption === "✊") {
+            this.winner = this.botName;
+          } else if (this.botOption === "✌" && this.playerOption === "🖐") {
+            this.winner = this.botName;
+          } else if (this.botOption === "✌" && this.playerOption === "✊") {
+            this.winner = this.playerName;
+          } else if (this.botOption === "✊" && this.playerOption === "🖐") {
+            this.winner = this.playerName;
+          } else if (this.botOption === "✊" && this.playerOption === "✌") {
+            this.winner = this.botName;
+          } else {
+            this.winner = "SERI";
+          }
+        }
+
+        matchResult() {
+          if (this.winner !== "SERI") {
+            return `${this.winner} MENANG!`;
+          } else {
+            return `WAA ${this.winner} GAK ADA YANG MENANG 😜`;
+          }
+        }
+      }
+
+      function pickOption(params) {
+        const start = new Start();
+        start.setPlayerOption = params; // Set player option using the setter
+        start.setBotOption = start.botBrain();
+        start.winCalculation();
+
+        const inGame = document.getElementById("inGame");
+        const result = document.getElementById("result");
+
+        inGame.textContent = "...";
+        result.textContent = "...";
+
+        setTimeout(() => {
+          inGame.textContent = `${start.getPlayerOption} vs ${start.getBotOption}`;
+          result.textContent = start.matchResult();
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

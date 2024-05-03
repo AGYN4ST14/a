@@ -1,0 +1,84 @@
+:root {
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    height: 100vh;
+    
+}
+.summary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    border: 3px solid rgb(40, 24, 0);
+    width: 400px;
+    height: 400px;
+    text-align: center;
+
+}
+
+.gemes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.option {
+    height: 50px;
+    margin:10px 50px;
+    padding: 30px 80px;
+    font-size: 40px;
+    text-align: center;
+    background-color: beige;
+}
+
+.option:hover{
+    cursor: pointer;
+    background-color: burlywood;
+    transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    transform: scale(105%);
+    -webkit-transform: scale(105%);
+    -moz-transform: scale(105%);
+    -ms-transform: scale(105%);
+    -o-transform: scale(105%);
+    -webkit-transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    -moz-transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    -ms-transition:cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+    -o-transition: cubic-bezier(0.215, 0661, 0.355, 1) ease-in-out;
+}
+
+@media (max-width: 431px) {
+    .summary{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 auto;
+        border: 3px solid blanchedalmond;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .option {
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        margin:50px 10px;
+        padding: 20px 40px;
+        font-size: 30px;
+        text-align: center;
+    }
+}
+    
